@@ -1,0 +1,26 @@
+{
+  "appVersion" : "1.8.0",
+  "authors" : [
+    {"name": "Christian Tietze"}
+  ],
+  "input" : {
+    "text" : [
+      "selected"
+    ],
+    "notes" : [
+
+    ]
+  },
+  "title" : "Extract Note",
+  "identifier" : "de.zettelkasten.extract_note",
+  "version" : "1.0.0",
+  "releaseDate" : "2024-07-25",
+  "output" : {
+    "insertText" : true,
+    "newFile" : true
+  },
+  "description" : "Zettel Refactoring: You have a text fragment that can be grouped together. Move the selected text into a new note and replace it with a link to the note.",
+  "dependencies" : [
+
+  ]
+}
