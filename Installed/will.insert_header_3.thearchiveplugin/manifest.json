@@ -1,0 +1,26 @@
+{
+  "appVersion" : "1.8.0",
+  "authors" : [
+    {"name": "Will Simpson"}
+  ],
+  "input" : {
+    "text" : [
+      "selected"
+    ],
+    "notes" : [
+
+    ]
+  },
+  "title" : "Insert Third Level Header",
+  "identifier" : "will.insert_header_3",
+  "version" : "0.1",
+  "releaseDate" : "August 20, 2024 ",
+  "output" : {
+    "insertText" : true,
+    "newFile" : false
+  },
+  "description" : "Inserts three hashtags in front of the selected text.",
+  "dependencies" : [
+
+  ]
+}

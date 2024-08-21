@@ -11,15 +11,15 @@
 
     ]
   },
-  "title" : "Insert Header",
-  "identifier" : "will.insert_header",
+  "title" : "Insert Forth Level Header",
+  "identifier" : "will.insert_header_4",
   "version" : "0.1",
-  "releaseDate" : "2024, 08, 16",
+  "releaseDate" : "August 20, 2024 ",
   "output" : {
     "insertText" : true,
     "newFile" : false
   },
-  "description" : "Inserts two hashtags in front of the selected text.",
+  "description" : "Inserts four hashtags in front of the selected text.",
   "dependencies" : [
 
   ]
