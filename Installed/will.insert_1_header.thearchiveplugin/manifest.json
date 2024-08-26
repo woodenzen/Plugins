@@ -11,15 +11,15 @@
 
     ]
   },
-  "title" : "Insert Second Level Header",
-  "identifier" : "will.insert_header_2",
+  "title" : "Insert First Level Header",
+  "identifier" : "will.insert_1_header",
   "version" : "0.1",
-  "releaseDate" : "August 20, 2024",
+  "releaseDate" : "2024-08-20",
   "output" : {
     "insertText" : true,
     "newFile" : false
   },
-  "description" : "Inserts two hashtags in front of the selected text.",
+  "description" : "Inserts one hashtag in front of the selected text.",
   "dependencies" : [
 
   ]

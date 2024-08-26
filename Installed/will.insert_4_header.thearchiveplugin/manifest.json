@@ -12,9 +12,9 @@
     ]
   },
   "title" : "Insert Forth Level Header",
-  "identifier" : "will.insert_header_4",
+  "identifier" : "will.insert_4_header",
   "version" : "0.1",
-  "releaseDate" : "August 20, 2024 ",
+  "releaseDate" : "2024-08-20",
   "output" : {
     "insertText" : true,
     "newFile" : false
