@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "babel-runtime": "^6.26.0",
+    "fs": "^0.0.1-security",
+    "pandas-js": "^0.2.4",
+    "path": "^0.12.7"
+  }
+}

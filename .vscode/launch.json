@@ -1,0 +1,11 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run stats.js",
+            "program": "/Users/will/Library/Application Support/TheArchive/Plugins/Installed/will.stats.thearchiveplugin/stats.js"
+        }
+    ]
+}
