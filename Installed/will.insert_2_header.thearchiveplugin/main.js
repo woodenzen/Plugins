@@ -8,7 +8,7 @@
       // Check if the selected text is already a level 2 header
       if (secondLevelHeaderRegex.test(selectedText)) {
         // If it's already a level 2 header, do nothing
-        output.insert.setText(selectedText);
+        output.insert.Text = selectedText;
         return;
       }
       
@@ -20,18 +20,18 @@
         // Replace the header with a level 2 header
         const secondLevelHeader = selectedText.replace(headerRegex, '## ');
         // Replace selection with Second Level Header
-        output.insert.setText(secondLevelHeader);
+        output.insert.Text = secondLevelHeader;
       } else {
       if (secondLevelHeaderRegex.test(selectedText)) {
         // If it's already a level 2 header, do nothing
-        output.insert.setText(selectedText);
+        output.insert.Text = selectedText;
         return;
       } 
       else {  
         // If no header is found, just add a level 2 header
         const secondLevelHeader2 = `## ${selectedText}`;
         // Replace selection with Second Level Header
-        output.insert.setText(secondLevelHeader2);
+        output.insert.Text = secondLevelHeader2;
       }
       }
     }

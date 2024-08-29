@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Holds the resulting tag counts we collect.
  *
@@ -36,7 +38,7 @@ let tagRegex = new RegExp(regex`
   #+          // One '#' is required, more than one '#' is allowed
   (                                                                          // (match[1] start)
     [\p{Letter}\p{Number}[-][_+§!:;.]]+                                      // Allow to start hashtag only with a mix of selected punctuation
-	[\p{Mark}\p{Letter}\p{Number}\p{Punctuation}\p{Math_Symbol}[-][§!:;.]]*  // Allow almost anything after the start
+    [\p{Mark}\p{Letter}\p{Number}\p{Punctuation}\p{Math_Symbol}[-][§!:;.]]*  // Allow almost anything after the start
     [\p{Letter}\p{Number}[-][_§]]+
   )                                                                          // (match[1] end)
 `, 'gv');
@@ -60,4 +62,4 @@ let body = "Tags:\n";
 for (let tagCount of sortedTagCountPairs) {
   body += tagCount[1] + " #" + tagCount[0].toString() + "\n";
 }
-output.changeFile.setContent(body);
+output.changeFile.content = body;

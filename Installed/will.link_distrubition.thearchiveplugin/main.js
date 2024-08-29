@@ -1,4 +1,17 @@
-let ownFilename = output.changeFile.filename;
+"use strict";
+
+// Ask user to provide the filename for the extracted note.
+const defaultFreeFilename = app.unusedFilename();
+const targetFilename = app.prompt({
+  title: "New Note’s Filename",
+  description: "The selected text will be moved into a note with this filename.",
+  placeholder: "Filename",
+  defaultValue: defaultFreeFilename,
+});
+
+if (targetFilename === undefined || targetFilename.trim() === "") {
+  throw new Error("No filename provided by user");
+}
 
 // Get the total count of all notes
 let totalNotesCount = input.notes.all.length;
@@ -60,4 +73,6 @@ ${linkCountTable}
 ${topTenNotesList}
 `;
 
-output.changeFile.setContent(body);
+// Create a new note with discribed filename and content
+output.changeFile.filename = targetFilename;
+output.changeFile.content = body;

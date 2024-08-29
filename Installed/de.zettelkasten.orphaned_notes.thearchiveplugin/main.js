@@ -1,3 +1,5 @@
+"use strict";
+
 var connections = {};
 
 function prepareNote(noteID) {
@@ -71,4 +73,4 @@ let body = "Orphans:\n";
 for (let filename of orphanFilenames.sort()) {
   body += "- [[" + filename + "]]\n";
 }
-output.changeFile.setContent(body);
+output.changeFile.content = body;

@@ -3,18 +3,20 @@
   "authors": [
     {"name": "Will Simpson"}
   ],
-  "version": "0.1",
-  "releaseDate": "2024-08-26",
+  "version": "0.2",
+  "releaseDate": "2024-08-29",
   "identifier": "will.stats",
   "title": "ZK Statistics",
   "description": "Generate statistics for a Zettelkasten",
   "input": {
     "notes": ["all"],
-    "text": [],
+    "text": []
   },
-  "output": {
-    "changeFile": "ZK Statistics 202408260906",
-    "onCompletion": "showFile"
+  "output" : {
+    "insertText" : true,
+    "programmatic" : true
   },
   "dependencies": []
+
+  
 }

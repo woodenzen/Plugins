@@ -20,9 +20,7 @@ const targetContent = [
   "" 
 // Ensure there's a trailing newline to be a good citizen of plain text files.
 ].join("\n");
-output.newFile.setContent(targetContent);
+output.newFile.Content = targetContent;
 
 
-// Removed for testing
-// Replace selection with link.
-//output.insert.setText(`This is a test [[${timestamp}]]`);
+

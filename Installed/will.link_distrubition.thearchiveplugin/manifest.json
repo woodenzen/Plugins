@@ -3,18 +3,18 @@
   "authors": [
     {"name": "Will Simpson"}
   ],
-  "version": "0.1",
-  "releaseDate": "2024-08-27",
+  "version": "0.2",
+  "releaseDate": "2024-08-29",
   "identifier": "will.link_distrubition",
   "title": "Link Distribution & Top Ten Notes",
   "description": "Generate statistics for a Zettelkasten",
   "input": {
     "notes": ["all"],
-    "text": [],
+    "text": []
   },
-  "output": {
-    "changeFile": "ZK Link Distribution 202408271127",
-    "onCompletion": "showFile"
+  "output" : {
+    "insertText" : true,
+    "programmatic" : true
   },
   "dependencies": []
 }

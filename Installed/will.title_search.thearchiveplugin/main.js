@@ -1,4 +1,6 @@
-    function processNotes(input, output) {
+
+
+function processNotes(input, output) {
         // Check if input.notes is defined
         if (!input || !input.notes) {
             console.error("Error: input.notes is undefined.");
@@ -34,7 +36,7 @@
         }
         
         // Set the contents of a new file that the app should create when the script has finished
-        output.newFile.setContent(resultText);
+        output.newFile.Content(resultText);
     }
     
     // Example input and output objects
