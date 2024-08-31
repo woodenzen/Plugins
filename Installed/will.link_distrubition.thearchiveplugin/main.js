@@ -69,7 +69,6 @@ Total Number of Notes in Zettelkasten: ${totalNotesCount}
 
 Link Count Breakdown:
 ${linkCountTable}
-
 ${topTenNotesList}
 `;
 

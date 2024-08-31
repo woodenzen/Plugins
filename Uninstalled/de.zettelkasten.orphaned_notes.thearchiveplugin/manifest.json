@@ -1,0 +1,20 @@
+{
+  "appVersion": "1.8.0",
+  "authors": [
+    {"name": "Christian Tietze"}
+  ],
+  "version": "1.0",
+  "releaseDate": "2022-08-06",
+  "identifier": "de.zettelkasten.orphaned_notes",
+  "title": "Find Orphaned Notes",
+  "description": "Orphaned notes don't have incoming links. Assembles a list of these.",
+  "input": {
+    "notes": ["all"],
+    "text": [],
+  },
+  "output": {
+    "changeFile": "Orphaned Notes",
+    "onCompletion": "showFile"
+  },
+  "dependencies": []
+}

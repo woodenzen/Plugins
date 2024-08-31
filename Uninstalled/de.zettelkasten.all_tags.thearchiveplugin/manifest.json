@@ -1,0 +1,20 @@
+{
+  "appVersion": "1.8.0",
+  "authors": [
+    {"name": "Christian Tietze"}
+  ],
+  "version": "1.0",
+  "releaseDate": "2022-08-06",
+  "identifier": "de.zettelkasten.all_tags",
+  "title": "Statistics of All Tags",
+  "description": "Lists all #hashtags in all your notes and how often each has been found. The result is sorted so you can spot which tags you use the least often.",
+  "input": {
+    "notes": ["all"],
+    "text": [],
+  },
+  "output": {
+    "changeFile": "Tag Index",
+    "onCompletion": "showFile"
+  },
+  "dependencies": []
+}

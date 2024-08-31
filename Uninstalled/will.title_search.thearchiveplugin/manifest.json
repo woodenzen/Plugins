@@ -1,0 +1,25 @@
+{
+  "appVersion" : "1.8.0",
+  "authors" : [
+    {"name": "Will Simpson"}
+  ],
+  "input" : {
+    "notes": ["all"],
+    "text": ["all"]
+  },
+  "title" : "Title Search",
+  "identifier" : "will.title_search",
+  "version" : "0.2.2",
+  "releaseDate" : "2024, 08, 31",
+  "input": {
+    "notes": ["all"],
+    "text": []
+  },
+  "output" : {
+    "insertText" : true,
+    "programmaticFilename" : true
+  },
+
+  "description" : "Title Search",
+  "dependencies": []
+}
