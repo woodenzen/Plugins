@@ -1,0 +1,22 @@
+{
+  "appVersion": "1.8.0",
+  "authors": [
+    {"name": "Will Simpson"}
+  ],
+  "version": "0.2",
+  "releaseDate": "2024-08-29",
+  "identifier": "will.proofing",
+  "title": "Proofing Oven",
+  "description": "Generate list of notes that need proofing.",
+  "input": {
+    "notes": ["all"],
+    "text": []
+  },
+  "output" : {
+    "insertText" : true,
+    "programmatic" : true
+  },
+  "dependencies": []
+
+  
+}

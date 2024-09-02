@@ -1,0 +1,27 @@
+{
+  "identifier" : "will.ts",
+  "releaseDate" : "2024-08-31",
+  "title" : "Title Search",
+  "version" : "1.0.0",
+  "appVersion" : "1.0.0",
+  "description" : "",
+  "dependencies" : [
+
+  ],
+  "authors" : [
+    {
+      "name" : "Will"
+    }
+  ],
+  "output" : {
+    "programmatic" : true
+  },
+  "input" : {
+    "text" : [
+
+    ],
+    "notes" : [
+      "all"
+    ]
+  }
+}

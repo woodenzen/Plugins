@@ -1,0 +1,27 @@
+{
+  "output" : {
+    "programmatic" : true
+  },
+  "identifier" : "will.proofing_list",
+  "appVersion" : "1.0.0",
+  "input" : {
+    "notes" : [
+      "all"
+    ],
+    "text" : [
+
+    ]
+  },
+  "version" : "1.0.0",
+  "dependencies" : [
+
+  ],
+  "releaseDate" : "2024-08-31",
+  "authors" : [
+    {
+      "name" : "Will"
+    }
+  ],
+  "description" : "",
+  "title" : "Proofing List"
+}

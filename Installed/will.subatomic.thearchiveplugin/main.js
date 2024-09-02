@@ -1,19 +1,19 @@
 "use strict";
 
-// Ask user to provide the search term.
-const searchTerm = app.prompt({
-  title: "Your Search Term",
-  description: "Enter the term you want to search.",
-  placeholder: "Search Term",
-});
+// // Ask user to provide the search term.
+// const searchTerm = app.prompt({
+//   title: "Your Search Term",
+//   description: "Enter the term you want to search.",
+//   placeholder: "Search Term",
+// });
 
-if (searchTerm === undefined || searchTerm.trim() === "") {
-  throw new Error("No search term provided by user");
-}
+// if (searchTerm === undefined || searchTerm.trim() === "") {
+//   throw new Error("No search term provided by user");
+// }
 
 // Array of all notes in the user's archive.
 const allNotes = input.notes.all;
-
+const searchTerm = "stroy";
 let results = [];
 
 // Function to search for the term in the "Subatomic: " line
@@ -43,9 +43,9 @@ const formattedResults = results
 // Log the structure of the output object for debugging
 console.log("Output object:", JSON.stringify(output, null, 2));
 
-// Check if output.changeFile is defined before setting its content
-if (output.changeFile && typeof output.changeFile.setContent === 'function') {
-  output.changeFile.setContent(formattedResults);
-} else {
-  console.error("Error: output.changeFile is undefined or does not have a setContent method.");
-}
+// // Check if output.changeFile is defined before setting its content
+// if (output.changeFile && typeof output.changeFile.setContent === 'function') {
+//   output.changeFile.setContent(formattedResults);
+// } else {
+//   console.error("Error: output.changeFile is undefined or does not have a setContent method.");
+// }
