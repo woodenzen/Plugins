@@ -4,18 +4,19 @@
     {"name": "Will Simpson"}
   ],
   "version": "0.2",
-  "releaseDate": "2024-08-29",
-  "identifier": "will.link_distrubition",
-  "title": "Link Distribution & Top Ten Notes",
-  "description": "Generate statistics for a Zettelkasten",
+  "releaseDate": "2024-09-02",
+  "identifier": "will.new_note_template",
+  "title": "Create New Zettel",
+  "description": "Create a new note from a template.",
   "input": {
     "notes": ["all"],
-    "text": []
+    "text": ["all"]
   },
   "output" : {
     "insertText" : true,
-    "onCompletion": "showFile",
     "changeFile" : { "programmaticFilename" : true }
   },
   "dependencies": []
+
+  
 }

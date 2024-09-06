@@ -26,7 +26,7 @@ function registerConnection(targetID) {
  * if possible; otherwise return `str`.
  */
 function identifier(str) {
-  let noteID = utils.extractNoteID(str);
+  let noteID = app.extractNoteID(str);
   if (noteID) {
     return noteID;
   } else {

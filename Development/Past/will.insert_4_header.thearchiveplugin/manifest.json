@@ -8,16 +8,19 @@
       "selected"
     ],
     "notes" : [
-      "selected"
+
     ]
   },
   "title" : "Insert Forth Level Header",
   "identifier" : "will.insert_4_header",
-  "version" : "0.2",
+  "version" : "0.1",
   "releaseDate" : "2024-08-20",
   "output" : {
     "insertText" : true,
+    "newFile" : false
   },
   "description" : "Inserts four hashtags in front of the selected text.",
-  "dependencies" : []
+  "dependencies" : [
+
+  ]
 }

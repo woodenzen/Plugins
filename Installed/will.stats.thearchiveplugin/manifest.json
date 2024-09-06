@@ -14,7 +14,8 @@
   },
   "output" : {
     "insertText" : true,
-    "programmatic" : true
+    "changeFile" : { "programmaticFilename" : true },
+    "onCompletion": "showFile"
   },
   "dependencies": []
 

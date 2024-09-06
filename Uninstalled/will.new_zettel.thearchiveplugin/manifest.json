@@ -5,16 +5,16 @@
   ],
   "version": "0.2",
   "releaseDate": "2024-08-29",
-  "identifier": "will.proofing",
-  "title": "Proofing Oven",
-  "description": "Generate list of notes that need proofing.",
+  "identifier": "will.new_zettel",
+  "title": "New Zettel",
+  "description": "Create a new note from a template.",
   "input": {
     "notes": ["all"],
-    "text": []
+    "text": ["all"]
   },
   "output" : {
     "insertText" : true,
-    "programmatic" : true
+    "changeFile" : { "programmaticFilename" : true }
   },
   "dependencies": []
 

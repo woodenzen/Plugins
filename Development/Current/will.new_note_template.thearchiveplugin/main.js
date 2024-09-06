@@ -3,10 +3,10 @@
 // Ask user to provide the filename for the extracted note.
 const defaultFreeFilename = app.unusedFilename();
 const targetFilename = app.prompt({
-  title: "New Note’s Filename",
-  description: "These are the notes needing proofing.",
-  placeholder: "Filename",
-  defaultValue: defaultFreeFilename,
+  title: "New Note’s Title",
+  description: "Name Your Note!",
+  placeholder: "noteTitle",
+  //defaultValue: defaultFreeFilename,
 });
 
 if (targetFilename === undefined || targetFilename.trim() === "") {
@@ -14,7 +14,7 @@ if (targetFilename === undefined || targetFilename.trim() === "") {
 }
 
 // Find the template note
-const templateFilename = 'T-New Template 202409012018';
+const templateFilename = '202409012018 T-New Template';
 const templateNote = input.notes.all.find(note => note.filename === templateFilename);
 
 if (!templateNote) {
@@ -22,7 +22,10 @@ if (!templateNote) {
 }
 
 // Get the content from the template note
-const templateContent = templateNote.content;
+let templateContent = templateNote.content;
+
+// Remove all lines that begin with >>
+templateContent = templateContent.split('\n').filter(line => !line.startsWith('>>')).join('\n');
 
 // Format the current date and time
 const now = new Date();
@@ -36,8 +39,10 @@ const formattedDateTime = new Intl.DateTimeFormat('en-US', {
 }).format(now);
 
 // Divide the targetFilename into title and UID
-const title = targetFilename.slice(0, -13);
-const uid = targetFilename.slice(-12);
+// const title = targetFilename.slice(0, -13);
+// const uid = targetFilename.slice(-12);
+const uid = defaultFreeFilename;
+const title = targetFilename;
 
 // Place the defaultFreeFilename, formatted date/time, title, and UID on the first lines of the template content
 const newContent = `---
@@ -49,7 +54,7 @@ tags:       #proofing
 ${templateContent}`;
 
 // Set the output with described filename and content
-output.changeFile.filename = targetFilename;
+output.changeFile.filename = `${uid} ${title}`;
 output.changeFile.content = newContent;
 
 console.log(`New file created: ${targetFilename}`);

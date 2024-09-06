@@ -1,9 +1,11 @@
 {
   "output" : {
-    "programmatic" : true
+    "changeFile" : { "programmaticFilename" : true },
+    "insertText" : true,
+    "onCompletion": "showFile"
   },
   "identifier" : "will.proofing_list",
-  "appVersion" : "1.0.0",
+  "appVersion" : "1.8.0",
   "input" : {
     "notes" : [
       "all"
