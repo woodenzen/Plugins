@@ -1,0 +1,22 @@
+{
+  "appVersion" : "1.8.0",
+  "authors" : [
+    {"name" : "Will Simpson"}
+  ],
+  "version" : "0.2",
+  "releaseDate" : "2024-09-02",
+  "identifier" : "will.title_search",
+  "title" : "Title Search",
+  "description" : "Search the Zettel Titles Only.",
+  "input" : {
+    "notes" : ["all"],
+    "text" : []
+  },
+  "output" : {
+    "changeFile" : { "programmaticFilename" : true },  
+    "onCompletion": "showFile"
+},
+  "dependencies" : []
+
+
+}
