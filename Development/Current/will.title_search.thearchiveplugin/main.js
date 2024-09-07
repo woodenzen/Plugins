@@ -1,14 +1,41 @@
 "use strict";
 
+function dump(obj, level = 0) {
+  if (typeof obj === 'object' && obj !== null) {
+    const indent = "  ".repeat(level + 1);
+    const entries = Object.entries(obj).map(([key, value]) => {
+      let entry = `${indent}"${key}": `;
+      if (typeof value === 'object' && value !== null) {
+        entry += dump(value, level + 1).trim();
+      } else if (typeof value === 'string') {
+        entry += `"${value}"`;
+      } else {
+        entry += `${value}`;
+      }
+      return entry;
+    });
+
+    const joinedEntries = entries.join(",\n");
+    const levelPadding = "  ".repeat(level);
+    return `{\n${joinedEntries}\n${levelPadding}}`;
+  } else {
+    return `${obj} (${typeof obj})`;
+  }
+}
+
 // Set the title and UID
 const targetFilename = "Title Search Results";
-
 const defaultFreeFilename = app.unusedFilename();
 const uid = defaultFreeFilename;
 const title = targetFilename;
 
+// Initialize ownFilename
+const ownFilename = `${uid} ${title}`;
+
 // Array of all notes in the user's archive.
 const allNotes = input.notes.all;
+
+console.log("All Notes:", allNotes); // Debugging statement
 
 for (let note of input.notes.all) {
   // Skip the tag overview file itself to not count its tags.
@@ -100,7 +127,8 @@ function evaluate(ast, notes) {
       console.log(`NEAR operation: ${a} NEAR ${b} = ${result}`); // Debugging statement
       stack.push(result);
     } else {
-      const wildcardRegex = new RegExp('^' + token.replace(/\*/g, '.*') + '$', 'i');
+            const wildcardRegex = new RegExp(token.replace(/\*/g, '.*'), 'i');
+      console.log(`Wildcard Regex: ${wildcardRegex}`); // Debugging statement
       const result = allFilenames.filter(filename => wildcardRegex.test(filename));
       console.log(`Wildcard operation: ${token} = ${result}`); // Debugging statement
       stack.push(result);
@@ -122,6 +150,7 @@ function formatFilenames(filenames) {
 }
 
 // Example usage
+const searchTerm = "JAMM425"; // Replace with actual search term
 const matchingFilenames = searchFilenames(allNotes, searchTerm);
 
 // Format the matching filenames as a string
