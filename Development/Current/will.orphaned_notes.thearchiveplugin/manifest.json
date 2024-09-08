@@ -1,0 +1,20 @@
+{
+  "appVersion": "1.8.0",
+  "authors": [
+    {"name": "Will Simpson"}
+  ],
+  "version": "0.1",
+  "releaseDate": "2024-09-07",
+  "identifier": "will.orphaned_notes",
+  "title": "Find Orphaned Notes",
+  "description": "Orphaned notes don't have incoming links. Assembles a list of these.",
+  "input": {
+    "notes": ["all"],
+    "text": [],
+  },
+  "output": {
+    "changeFile": "Orphaned Notes",
+    "onCompletion": "showFile"
+  },
+  "dependencies": []
+}

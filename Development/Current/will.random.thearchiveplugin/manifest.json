@@ -1,0 +1,22 @@
+{
+  "appVersion" : "1.8.0",
+  "authors" : [
+    {"name" : "Will Simpson"}
+  ],
+  "version" : "0.1",
+  "releaseDate" : "2024-09-07",
+  "identifier" : "will.random",
+  "title" : "Random Notes",
+  "description" : "Get Random Notes.",
+  "input" : {
+    "notes" : ["all"],
+    "text" : []
+  },
+  "output" : {
+    "changeFile" : { "programmaticFilename" : true },  
+    "onCompletion": "showFile"
+},
+  "dependencies" : []
+
+
+}
