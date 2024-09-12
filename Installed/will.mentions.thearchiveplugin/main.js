@@ -1,18 +1,5 @@
 "use strict";
 
-// Ask user to provide the filename for the extracted note.
-const defaultFreeFilename = app.unusedFilename();
-const targetFilename = app.prompt({
-  title: "Mentions Note",
-  description: "All the forum mentions in the Zettelkasten",
-  placeholder: "Filename",
-  defaultValue: defaultFreeFilename,
-});
-
-if (targetFilename === undefined || targetFilename.trim() === "") {
-  throw new Error("No filename provided by user");
-}
-
 // Function to find mentions in the target note
 function findMentionsInTargetNote(input) {
   // Check if input and input.notes.all are defined
@@ -60,6 +47,10 @@ function findMentions(input) {
 
   // Iterate over each note once and collect mentions
   input.notes.all.forEach(note => {
+    if (note.filename === 'Target Mentions in Zettelkasten 202406281723' || note.filename === 'Mentions in Zettelkasten 202409112000') {
+      return; // Skip the target note
+    }
+
     const contentLower = note.content.toLowerCase();
     mentionsList.forEach(mention => {
       if (contentLower.includes(mention.toLowerCase())) {
@@ -70,7 +61,6 @@ function findMentions(input) {
       }
     });
   });
-
   let report = '';
 
   // Iterate over the mentions map to generate the report
@@ -85,7 +75,7 @@ function findMentions(input) {
     const formattedFilenames = formatFilenames(sortedFilenames);
 
     // Append to the report
-    report += `${mention}        ${uniqueFilenames.length} Mentions\n`;
+    report += `## ${mention} has ${uniqueFilenames.length} mentions in my ZK\n`;
     report += formattedFilenames.join('\n') + '\n\n';
   });
 
@@ -113,8 +103,29 @@ function formatFilenames(filenames) {
   });
 }
 
-const report = findMentions(input);
+// const report = findMentions(input);
+
+// Format the report
+let report = `---
+UUID:      ›[[202409112000]] 
+cdate:     09-11-2024 8:00PM
+tags:      #people #forum-post 
+---
+# Mentions in Zettelkasten
+
+## Reference
+- Track ZK.Forum Mentions
+		- bear://x-callback-url/open-note?id=F7D821AB-A841-4B85-986C-6B9E7C90C37D
+
+Forum Memeber Mentions in The Archive
+★★★★★★★★★★★★★★★★★★
+
+${findMentions(input)}
+`;
+
+
 console.log(report);
+const targetFilename = "Mentions in Zettelkasten 202409112000";
 
 // Set the output with described filename and content
 output.changeFile.filename = targetFilename;

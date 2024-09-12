@@ -1,0 +1,24 @@
+{
+  "appVersion" : "1.8.0",
+  "authors" : [
+    {
+      "name": "Will Simpson",
+      "url": "https://kestrelcreek.com"
+    }
+  ],
+  "input" : {
+    "notes" : ["all"],
+    "text" : [ ]
+  },
+  "title" : "Mentions",
+  "identifier" : "will.mentions",
+  "version" : "0.1",
+  "releaseDate" : "2024-09-09",
+  "output" : {
+    "insertText" : true,
+    "changeFile": { "programmaticFilename" : true },
+    "onCompletion": "showFile"
+  },
+  "description" : "This plugin will create a note with all the mentions of the terms in Target Mentions in Zettelkasten 202406281723.",
+  "dependencies" : [ ]
+}

@@ -1,5 +1,7 @@
 "use strict";
 
+const targetFilename = "Mentions in Zettelkasten 202409112000";
+
 // Function to find mentions in the target note
 function findMentionsInTargetNote(input) {
   // Check if input and input.notes.all are defined
@@ -47,10 +49,6 @@ function findMentions(input) {
 
   // Iterate over each note once and collect mentions
   input.notes.all.forEach(note => {
-    if (note.filename === 'Target Mentions in Zettelkasten 202406281723' || note.filename === 'Mentions in Zettelkasten 202409112000') {
-      return; // Skip the target note
-    }
-
     const contentLower = note.content.toLowerCase();
     mentionsList.forEach(mention => {
       if (contentLower.includes(mention.toLowerCase())) {
@@ -61,6 +59,7 @@ function findMentions(input) {
       }
     });
   });
+
   let report = '';
 
   // Iterate over the mentions map to generate the report
@@ -125,7 +124,6 @@ ${findMentions(input)}
 
 
 console.log(report);
-const targetFilename = "Mentions in Zettelkasten 202409112000";
 
 // Set the output with described filename and content
 output.changeFile.filename = targetFilename;
