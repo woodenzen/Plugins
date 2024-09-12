@@ -23,10 +23,10 @@ if (!mentionsNote) {
 }
 
 // Get the content from the template note
-let noteContent = mentionsNote.content;
+let noteContent = mentionsNote.mentionsInput;
 
 // Remove all lines that begin with >>
-noteContent = noteContent.split('\n').filter(line => !line.startsWith('>>')).join('\n');
+//SECTION - noteContent = noteContent.split('\n').filter(line => !line.startsWith('>>')).join('\n');
 
 // Format the current date and time
 const now = new Date();
@@ -42,7 +42,7 @@ const formattedDateTime = new Intl.DateTimeFormat('en-US', {
 
 // Set the title and UID
 const uid = app.unusedFilename();
-const title = "Mentions Report";
+// const title = "Mentions Report";
 
 
 // Place the defaultFreeFilename, formatted date/time, title, and UID on the first lines of the template content
@@ -51,15 +51,19 @@ UUID:      ›[[${uid}]]
 cdate:      ${formattedDateTime}
 tags:       #proofing
 ---
-# ${title}
+# ${uid}
 ${noteContent}
 
 
 `;
 
+// Ensure output.changeFile is defined
+if (!output.changeFile) {
+  output.changeFile = {};
+}
 
 // Set the output with the described filename
-output.changeFile.filename = `${title} ${uid}`;
+output.changeFile.filename = `${uid} ${uid}`;
 output.changeFile.content = newContent;
 
 
