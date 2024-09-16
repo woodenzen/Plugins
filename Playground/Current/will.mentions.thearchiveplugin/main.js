@@ -74,10 +74,11 @@ function findMentions(input) {
     // Format the filenames
     const formattedFilenames = formatFilenames(sortedFilenames);
 
-    // Append to the report
-    report += `## ${mention} has ${uniqueFilenames.length} mentions in my ZK\n`;
-    report += formattedFilenames.join('\n') + '\n\n';
-  });
+     // Append to the report
+     const timesText = uniqueFilenames.length === 1 ? 'time' : 'times';
+     report += `## ${mention} is mentioned ${uniqueFilenames.length} ${timesText} in my ZK.\n`;
+     //report += formattedFilenames.join('\n') + '\n\n';
+   });
 
   return report;
 }
