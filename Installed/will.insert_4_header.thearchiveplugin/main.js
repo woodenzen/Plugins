@@ -27,4 +27,6 @@ if (!output.replace) {
 }
 
 // Replace the entire line with the Fourth Level Header
-output.replace.line = forth_level_header;
+// output.replace.line = forth_level_header;
+// Replace selection with link to extracted note.
+output.insert.text = `#### ${selectedText}`;
