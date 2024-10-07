@@ -53,7 +53,7 @@ function findMentions(input) {
 
     const contentLower = note.content.toLowerCase();
     mentionsList.forEach(mention => {
-      if (contentLower.includes(mention.toLowerCase())) {
+      if (contentLower.includes(mention.toLowerCase())) { 
         if (!mentionsMap.has(mention)) {
           mentionsMap.set(mention, []);
         }
@@ -61,25 +61,28 @@ function findMentions(input) {
       }
     });
   });
-  let report = '';
-
-  // Iterate over the mentions map to generate the report
-  mentionsMap.forEach((filenames, mention) => {
+    let report = '';
+  
+  // Convert mentionsMap to an array of entries and sort by the number of mentions in descending order
+  const sortedMentions = Array.from(mentionsMap.entries()).sort((a, b) => b[1].length - a[1].length);
+  
+  // Iterate over the sorted mentions array to generate the report
+  sortedMentions.forEach(([mention, filenames]) => {
     // Make the list unique
     const uniqueFilenames = makeUniqueList(filenames);
-
+  
     // Sort the list by the last 12 digits of the filename in reverse order
-    const sortedFilenames = sortFilenames(uniqueFilenames);
-
+    //STUB - const sortedFilenames = sortFilenames(uniqueFilenames);
+  
     // Format the filenames
-    const formattedFilenames = formatFilenames(sortedFilenames);
-
-     // Append to the report
-     const timesText = uniqueFilenames.length === 1 ? 'time' : 'times';
-     report += `## ${mention} is mentioned ${uniqueFilenames.length} ${timesText} in my ZK.\n`;
-     // Comment out the line below to abbreviate the report.
-     report += formattedFilenames.join('\n') + '\n\n';
-   });
+    // const formattedFilenames = formatFilenames(sortedFilenames);
+  
+    // Append to the report
+    const timesText = uniqueFilenames.length === 1 ? 'time' : 'times';
+    report += `#### [[${mention}]] is mentioned ${uniqueFilenames.length} ${timesText} in my ZK.\n`;
+    // Comment out the line below to abbreviate the report.
+    // report += formattedFilenames.join('\n') + '\n\n';
+  });
 
   return report;
 }
