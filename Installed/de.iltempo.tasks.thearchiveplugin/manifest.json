@@ -19,10 +19,10 @@
     ]
   },
   "output" : {
-    "changeFile" : "Tasks",
-    "onCompletion" : "showFile"
+    "changeFile" : "Tasks 202401010101",
+    "onCompletion": "showFile"
   },
   "releaseDate" : "2024-10-07",
   "title" : "Find Tasks in Notes",
-  "version" : "1.1.0"
+  "version" : "1.2.0"
 }

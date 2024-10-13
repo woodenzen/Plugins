@@ -4,10 +4,10 @@
 // * [ ] Task
 // 99. [ ] Task
 //
-// Test the regular expression here: https://regex101.com/r/bmfG3m/1 
+// Test the regular expression here: https://regex101.com/r/bmfG3m/2 
 
 const ownFilename = output.changeFile.filename;
-const tasksRegex = /\d*[-*.] .* \[ \]|\[ \] .*/g;
+const tasksRegex = /([-*]|\d+.) \[ \].*/g;
 let body = "Tasks:\n";
 
 for (let note of input.notes.all) {
@@ -17,7 +17,7 @@ for (let note of input.notes.all) {
   // Find notes that contain tasks
   if (note.content.match(tasksRegex) !== null) {
     // Write note links
-    body += "\n[[" + note.filename + "]]\n";
+    body += "\n[[" + note.filename + "]]\n\n";
 
     for (taskMatch of note.content.matchAll(tasksRegex)) {
       // Write tasks found as a Markdown list
@@ -27,4 +27,3 @@ for (let note of input.notes.all) {
 }
 
 output.changeFile.content = body;
-

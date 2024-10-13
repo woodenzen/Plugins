@@ -10,7 +10,7 @@
   "description": "Orphaned notes don't have incoming links. Assembles a list of these.",
   "input": {
     "notes": ["all"],
-    "text": [],
+    "text": []
   },
   "output": {
     "changeFile": "Orphaned Notes",

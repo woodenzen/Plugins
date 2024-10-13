@@ -1,0 +1,22 @@
+{
+  "appVersion" : "1.8.0",
+  "authors" : [
+    {
+      "name": "Will Simpson",
+      "url": "https://kestrelcreek.com"
+    }
+  ],
+  "input" : {
+    "notes" : [],
+    "text" : [ "selected" ]
+  },
+  "title" : "Check Checkbox",
+  "identifier" : "will.check_checkbox",
+  "version" : "1.0.0",
+  "releaseDate" : "2024-10-07",
+  "output" : {
+    "insertText" : true
+  },
+  "description" : "Check the checkboxs",
+  "dependencies" : [ ]
+}
