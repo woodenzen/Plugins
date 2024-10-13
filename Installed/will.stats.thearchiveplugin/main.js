@@ -1,19 +1,70 @@
 
+/**
+ * Plugin for "The Archive"
+ * Creates a statistics summaryof the zettelkasten and a table of monthly note counts
+ *   - The user is prompted for a title
+ *   - The filename is made from the current timestamp
+ *   - A front matter is inserted at the top of the created note
+ * 
+ * NB:
+ *   - The timestamp is precise to the minute
+ *   - The front matter structure is hardcoded
+ *
+ * @summary create new note with zettelkasten statistics
+ * @author Will Simpson <will@kestrelcreek.com>
+ *
+ * Created on     : 2024-08-29 
+ * Last modified  : 2024-10-12 
+ */
+
+
 "use strict";
 
 
-// Ask user to provide the filename for the extracted note.
-const defaultFreeFilename = app.unusedFilename();
-const targetFilename = app.prompt({
-  title: "New Note’s Filename",
-  description: "The selected text will be moved into a note with this filename.",
-  placeholder: "Filename",
-  defaultValue: defaultFreeFilename,
+// Ask user to provide the title for the note
+const targetTitle = app.prompt({
+  title: "New Note with Timestamp",
+  description: "Enter title:",
+  placeholder: "Title",
+  defaultValue: "",
 });
-
-if (targetFilename === undefined || targetFilename.trim() === "") {
-  throw new Error("No filename provided by user");
+if (targetTitle === null) { // user clicked cancel
+    cancel("Creation cancelled");
 }
+
+// Generate the UUID
+const now = new Date();
+const timestampString = [
+  now.getFullYear(),
+  ('0' + (now.getMonth() + 1)).slice(-2),
+  ('0' + now.getDate()).slice(-2),
+  ('0' + now.getHours()).slice(-2),
+  ('0' + now.getMinutes()).slice(-2),
+].join('');
+
+// Create the filename
+const targetFilename = `${timestampString} ${targetTitle}`;
+
+
+//Create Human Readable date
+const humanReadableDate = [
+  ('0' + now.getDate()).slice(-2),
+  ('0' + (now.getMonth() + 1)).slice(-2),
+  now.getFullYear(),
+].join('-');
+
+//Create Human Readable time
+const hours24 = now.getHours();
+const minutes = ('0' + now.getMinutes()).slice(-2);
+  // Determine AM/PM
+const ampm = hours24 >= 12 ? 'PM' : 'AM';
+  // Convert to 12-hour format
+const hours12 = hours24 % 12 || 12; // Convert '0' to '12'
+  // Format hours to always have two digits
+const formattedHours = ('0' + hours12).slice(-2);
+  // Combine the formatted time
+const formattedTime = `${formattedHours}:${minutes} ${ampm}`
+
 
 // Get the total count of all notes
 let totalNotesCount = input.notes.all.length;
@@ -65,16 +116,21 @@ function createMonthlyTable(counts) {
   });
   years = Array.from(years).sort();
 
+  // Calculate the maximum width for each column
+  const maxYearWidth = Math.max(...years.map(year => year.length));
+  const maxMonthWidth = Math.max(...months.map(month => month.length));
+  const maxCountWidth = Math.max(...Object.values(counts).map(count => String(count).length), 1);
+
   // Create the header row
-  let table = '| Month | ' + years.join(' | ') + ' |\n';
-  table += '|-------|' + '------|'.repeat(years.length) + '\n';
+  let table = `| ${'Month'.padEnd(maxMonthWidth)} | ` + years.map(year => year.padEnd(maxYearWidth)).join(' | ') + ' |\n';
+  table += `|${'-'.repeat(maxMonthWidth + 2)}|` + years.map(() => '-'.repeat(maxYearWidth + 2)).join('|') + '|\n';
 
   // Create the rows for each month
   months.forEach((month, index) => {
-    let row = `| ${month} |`;
+    let row = `| ${month.padEnd(maxMonthWidth)} |`;
     years.forEach(year => {
       const key = `${year}-${String(index + 1).padStart(2, '0')}`;
-      row += ` ${counts[key] || 0} |`;
+      row += ` ${String(counts[key] || 0).padEnd(maxYearWidth)} |`;
     });
     table += row + '\n';
   });
@@ -105,6 +161,13 @@ let monthlyTable = createMonthlyTable(monthlyCounts);
 
 // Use template literals for better formatting
 let body = `
+---
+UUID:     ›[[${timestampString}]]
+cdate:    ${humanReadableDate} ${formattedTime} 
+tags:     #statistics
+---
+# ${targetTitle}
+
 Zettelkasten Stats
 ★★★★★★★★★★★★★★★★★★
 Total Number of Notes in Zettelkasten: ${totalNotesCount}
