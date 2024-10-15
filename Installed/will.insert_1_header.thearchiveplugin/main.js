@@ -30,3 +30,4 @@ if (!output.replace) {
 // output.replace.line = first_level_header;
 // Replace selection with link to extracted note.
 output.insert.text = `# ${selectedText}`;
+
