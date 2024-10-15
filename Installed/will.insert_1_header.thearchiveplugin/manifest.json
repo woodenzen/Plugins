@@ -1,0 +1,23 @@
+{
+  "appVersion" : "1.8.0",
+  "authors" : [
+    {"name": "Will Simpson"}
+  ],
+  "input" : {
+    "text" : [
+      "selected"
+    ],
+    "notes" : [
+      "selected"
+    ]
+  },
+  "title" : "Insert First Level Header",
+  "identifier" : "will.insert_1_header",
+  "version" : "1.0",
+  "releaseDate" : "2024-10-14",
+  "output" : {
+    "insertText" : true
+  },
+  "description" : "Inserts One hashtags in front of the selected text.",
+  "dependencies" : []
+}
