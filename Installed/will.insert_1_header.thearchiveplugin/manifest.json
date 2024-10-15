@@ -18,6 +18,6 @@
   "output" : {
     "insertText" : true
   },
-  "description" : "Inserts One hashtags in front of the selected text.",
+  "description" : "Inserts one hashtags in front of the selected text.",
   "dependencies" : []
 }
