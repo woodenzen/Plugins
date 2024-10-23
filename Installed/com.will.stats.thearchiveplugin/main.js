@@ -76,15 +76,19 @@ function countWords(text) {
 
 // Function to count links in a string
 function countLinks(text) {
-  const linkRegex = /[ ,§]\[\[/g;
+  const linkRegex = /(^|\s|§)\[\[/g;
   const matches = text.match(linkRegex);
   return matches ? matches.length : 0;
 }
 
-// Function to count notes with the #proofing tag
-function countProofingNotes(notes) {
-  return notes.filter(note => note.content.includes('#proofing')).length;
+// Function to count notes with the #inbox tag
+function countInboxNotes(notes) {
+  return notes.filter(note => note.content.includes('#inbox')).length;
 }
+// For future funtionality
+// Total Notes in Inbox: ${totalInboxNotesCount}
+
+
 
 // Function to extract and count dates from filenames
 function countFilesByMonth(notes) {
@@ -150,8 +154,8 @@ let averageWordCount = totalNotesCount > 0 ? (totalWordCount / totalNotesCount).
 // Calculate the average link count
 let averageLinkCount = totalNotesCount > 0 ? (totalLinkCount / totalNotesCount).toFixed(2) : 0;
 
-// Calculate the total number of notes with the #proofing tag
-let totalProofingNotesCount = countProofingNotes(input.notes.all);
+// Calculate the total number of notes with the #inbox tag
+let totalInboxNotesCount = countInboxNotes(input.notes.all);
 
 // Calculate the monthly file counts
 let monthlyCounts = countFilesByMonth(input.notes.all);
@@ -168,16 +172,15 @@ tags:     #statistics
 ---
 # ${targetTitle}
 
-Zettelkasten Stats
-★★★★★★★★★★★★★★★★★★
-Total Number of Notes in Zettelkasten: ${totalNotesCount}
-Total Word Count: ${totalWordCount}
-Average Word Count: ${averageWordCount}
-Total Link Count: ${totalLinkCount}
-Average Link Count: ${averageLinkCount}
-Total Notes in Proofing Oven: ${totalProofingNotesCount}
+# Zettelkasten Stats
+★★★★★★★★★★★★★★★★★★  
+Total Number of Notes in Zettelkasten: ${totalNotesCount}  
+Total Word Count: ${totalWordCount}  
+Average Word Count: ${averageWordCount}  
+Total Link Count: ${totalLinkCount}  
+Average Link Count: ${averageLinkCount}  
 
-Monthly Breakdown:
+## Monthly Breakdown:  
 ${monthlyTable}
 `;
 
