@@ -10,15 +10,20 @@
     "notes" : ["all"],
     "text" : [ "selected" ]
   },
-  "title" : "Note Concatenatoin",
-  "identifier" : "will.concatenation",
+  "title" : "Note Transclusion",
+  "identifier" : "will.transclusion",
   "version" : "0.1",
-  "releaseDate" : "2024-10-28",
+  "releaseDate" : "2024-10-30",
   "output" : {
     "insertText" : true,
+    "output.showPreview" : true,
     "changeFile": { "programmaticFilename" : true },
     "onCompletion": "showFile"
   },
-  "description" : "This plugin will create a note concatenating a list of notes from a base note.",
+  "description" : "This plugin will create a transculsion note concatenating a list of notes from a template note containing a list of notes.",
   "dependencies" : [ ]
 }
+
+
+
+

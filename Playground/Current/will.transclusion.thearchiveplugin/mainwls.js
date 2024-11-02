@@ -25,14 +25,6 @@ function promptFilenames() {
   return { inputFilename, outputFilename };
 }
 
-// Function to read file content (mock implementation)
-function readFile(filename) {
-  // Replace this with actual file reading logic
-  // For example, using fs.readFileSync in Node.js
-  console.log(`Reading file: ${filename}`);
-  return "File content of " + filename;
-}
-
 // Function to extract text between "-----" lines
 function extractTextBetweenDashes(content) {
   const regex = /-----\n([\s\S]*?)\n-----/g;
@@ -44,16 +36,17 @@ function extractTextBetweenDashes(content) {
   return extractedText.trim();
 }
 
-// Main function to process the input file and generate the output note
-function generateConcatenatedNote() {
-  const { inputFilename, outputFilename } = promptFilenames();
-
   // Read the input file content
-  const inputContent = readFile(inputFilename);
+  const inputContent = inputFilename.content;
+  let template = inputFilename.filename;
+  let content = inputFilename.content;  
+  
 
   // Print inputFilename and inputContent to log
-  console.log("Input Filename:", inputFilename);
+  console.log("Input Filename:", template);
   console.log("Input Content:", inputContent);
+  console.log("Input Content:", content);
+
 
   // Extract links to files between "-----" lines
   const linkRegex = /-----\n([\s\S]*?)\n-----/g;
