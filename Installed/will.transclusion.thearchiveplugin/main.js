@@ -10,6 +10,7 @@
  *   - The user is prompted for a title for the output file
  *   - The filename is made with the current timestamp
  *   - No front matter is inserted at the top of the created note
+ *   - The output is also copied to the clipboard for placement is other applications
  * 
  * 
  * NB:
@@ -17,7 +18,7 @@
  *
  * @summary Create new note that is a transclusion/concatenation of other notes
  * @created on     : 2024-10-28 
- * @last modified  : 2024-11-02 
+ * @last modified  : 2024-11-03
  */
 
 
@@ -85,3 +86,4 @@ console.log("Draft Content:\n", draftContent);
 // Set the output with the described filename
 output.changeFile.filename = `${title} ${uid}`;
 output.changeFile.content = draftContent.trim();
+output.pasteboard.content = draftContent.trim();

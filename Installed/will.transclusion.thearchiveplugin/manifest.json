@@ -22,7 +22,8 @@
     "changeFile" : {
       "programmaticFilename" : true
     },
-    "onCompletion" : "showFile"
+    "onCompletion" : "showFile",
+    "pasteboard" : true
   },
   "releaseDate" : "2024-11-03",
   "title" : "Note Transclusion",
