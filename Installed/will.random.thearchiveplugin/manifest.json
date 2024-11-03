@@ -10,11 +10,13 @@
   "description" : "Get Random Notes.",
   "input" : {
     "notes" : ["all"],
-    "text" : []
+    "text" : [],
+    "pasteboard" : false
   },
   "output" : {
     "changeFile" : { "programmaticFilename" : true },  
-    "onCompletion": "showFile"
+    "onCompletion": "showFile",
+    "pasteboard" : true
 },
   "dependencies" : []
 
