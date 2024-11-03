@@ -6,27 +6,27 @@
       "url": "https://kestrelcreek.com"
     }
   ],
+  "description" : "Transclude notes into the current note.",
+  "identifier" : "will.transclusion",
   "input" : {
-    "notes" : ["all"],
-    "text" : [ "selected" ]
+    "notes" : [
+      "all",
+      "selected"
+    ],
+    "pasteboard" : false,
+    "text" : [
+      "all"
+    ]
   },
-  "title" : "Note Transclusion",
-  "identifier" : "com.will.transclusion",
-  "version" : "0.1",
-  "releaseDate" : "2024-11-02",
   "output" : {
-    "insertText" : true,
-    "output.showPreview" : true,
-    "pasteboard" : true,
-    "display" : true,
-    "change.content" : true,
-    "changeFile": { "programmaticFilename" : true },
-    "onCompletion": "showFile"
+    "changeFile" : {
+      "programmaticFilename" : true
+    },
+    "onCompletion" : "showFile",
+    "pasteboard" : true
   },
-  "description" : "This plugin will create a transculsion note concatenating a list of notes from a template note containing a list of notes.",
-  "dependencies" : [ ]
+  "releaseDate" : "2024-11-03",
+  "title" : "Note Transclusion",
+  "version" : "0.2",
+  "dependencies" : []
 }
-
-
-
-
