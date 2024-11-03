@@ -85,12 +85,3 @@ console.log("Draft Content:\n", draftContent);
 // Set the output with the described filename
 output.changeFile.filename = `${title} ${uid}`;
 output.changeFile.content = draftContent.trim();
-
-// Step 5: Assign `draftContent` to an output variable
-// const outputFilename = "ConcatenatedOutput.md"; // You can modify this or prompt the user
-
-// output.changeFile.filename = outputFilename;
-// output.changeFile.content = draftContent.trim();
-
-// Debug: Confirm the output assignment
-//console.log(`Output assigned to "${output.changeFile.filename}".`);

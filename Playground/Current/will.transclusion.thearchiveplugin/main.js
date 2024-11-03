@@ -4,18 +4,20 @@
  * Plugin for "The Archive"
  * Creates a document for concatenating notes
  *   - The user must have the template note open
+ *   - The template note must contain a list of note titles or links
+ *   - One on each line in the order desired
+ *   - Everything else in the template file will be ignored
  *   - The user is prompted for a title for the output file
- *   - The filename is made from the current timestamp
- *   - A front matter is inserted at the top of the created note
- *   - The plugin uses %%% to block the note titles.
+ *   - The filename is made with the current timestamp
+ *   - No front matter is inserted at the top of the created note
+ * 
  * 
  * NB:
  *   - The timestamp is precise to the minute
- *   - The front matter structure is currently hardcoded
  *
- * @summary Create new note that is a concatenation of other notes
+ * @summary Create new note that is a transclusion/concatenation of other notes
  * @created on     : 2024-10-28 
- * @last modified  : 2024-10-12 
+ * @last modified  : 2024-11-02 
  */
 
 
