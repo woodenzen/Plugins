@@ -86,4 +86,4 @@ console.log("Draft Content:\n", draftContent);
 // Set the output with the described filename
 output.changeFile.filename = `${title} ${uid}`;
 output.changeFile.content = draftContent.trim();
-output.pasteboard.content = draftContent.trim();
+output.pasteboard.content = draftContent;
