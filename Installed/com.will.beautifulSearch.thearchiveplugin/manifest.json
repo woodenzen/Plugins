@@ -1,0 +1,33 @@
+{
+  "appVersion" : "0.1.8",
+  "authors" : [
+    {
+      "name" : "Will Simpson (@Will)"
+    }
+  ],
+  "dependencies" : [
+
+  ],
+  "description" : "",
+  "identifier" : "com.will.beautifulSearch",
+  "input" : {
+    "notes" : [
+      "all",
+      "selected"
+    ],
+    "pasteboard" : false,
+    "text" : [
+      "all"
+    ]
+  },
+  "output" : {
+    "changeFile" : {
+      "programmaticFilename" : true
+    },
+    "pasteboard" : true,
+    "showPreview" : "buffer"
+  },
+  "releaseDate" : "2024-11-10",
+  "title" : "Beautiful Search",
+  "version" : "0.1.0"
+}
