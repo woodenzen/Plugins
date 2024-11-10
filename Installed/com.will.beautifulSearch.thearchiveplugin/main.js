@@ -63,7 +63,7 @@ function performSearch(searchTerm) {
 
     // Format the search results
     if (results.length > 0) { 
-        draftContent += `# ${results.length} Search Results for "${trimmedSearchTerm}".\n\n`;
+        draftContent += `# ${results.length} Search Results for "${trimmedSearchTerm}."\n\n`;
         results.forEach(result => {
             draftContent += `## [[${result.filename}]]${result.line}\n\n---\n`;
         });
