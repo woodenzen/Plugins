@@ -1,0 +1,29 @@
+{
+  "appVersion" : "1.8.0",
+  "authors" : [
+    {
+      "name": "Will Simpson",
+      "url": "https://kestrelcreek.com"
+    }
+  ],
+  "input" : {
+    "notes" : ["all"],
+    "text" : [ "selected" ]
+  },
+  "title" : "Epigraph Search",
+  "identifier" : "will.epigraph",
+  "version" : "0.1",
+  "releaseDate" : "2024-11-09",
+  "output" : {
+    "insertText" : true,
+    "output.showPreview" : true,
+    "changeFile": { "programmaticFilename" : true },
+    "onCompletion": "showFile"
+  },
+  "description" : "Searches a blockquote.",
+  "dependencies" : [ ]
+}
+
+
+
+
