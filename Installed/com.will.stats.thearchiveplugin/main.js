@@ -1,10 +1,12 @@
 
 /**
  * Plugin for "The Archive"
- * Creates a statistics summaryof the zettelkasten and a table of monthly note counts
+ * Creates a statistics summary of the zettelkasten and a table of monthly note counts
  *   - The user is prompted for a title
  *   - The filename is made from the current timestamp
  *   - A front matter is inserted at the top of the created note
+ * 
+ * Also Puts a copy of the note in the clipboard for pasting elsewhere.
  * 
  * NB:
  *   - The timestamp is precise to the minute
@@ -76,19 +78,15 @@ function countWords(text) {
 
 // Function to count links in a string
 function countLinks(text) {
-  const linkRegex = /(^|\s|§)\[\[/g;
+  const linkRegex = /[ ,§]\[\[/g;
   const matches = text.match(linkRegex);
   return matches ? matches.length : 0;
 }
 
-// Function to count notes with the #inbox tag
-function countInboxNotes(notes) {
-  return notes.filter(note => note.content.includes('#inbox')).length;
+// Function to count notes with the #proofing tag
+function countProofingNotes(notes) {
+  return notes.filter(note => note.content.includes('#proofing')).length;
 }
-// For future funtionality
-// Total Notes in Inbox: ${totalInboxNotesCount}
-
-
 
 // Function to extract and count dates from filenames
 function countFilesByMonth(notes) {
@@ -110,8 +108,8 @@ function countFilesByMonth(notes) {
 function createMonthlyTable(counts) {
   let years = new Set();
   let months = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
   ];
   
   // Collect all years from the counts
@@ -119,26 +117,26 @@ function createMonthlyTable(counts) {
     years.add(key.slice(0, 4));
   });
   years = Array.from(years).sort();
-
+  
   // Calculate the maximum width for each column
-  const maxYearWidth = Math.max(...years.map(year => year.length));
+  const maxYearWidth = Math.max(...years.map(year => year.length), 'Year'.length);
   const maxMonthWidth = Math.max(...months.map(month => month.length));
   const maxCountWidth = Math.max(...Object.values(counts).map(count => String(count).length), 1);
-
+  
   // Create the header row
-  let table = `| ${'Month'.padEnd(maxMonthWidth)} | ` + years.map(year => year.padEnd(maxYearWidth)).join(' | ') + ' |\n';
-  table += `|${'-'.repeat(maxMonthWidth + 2)}|` + years.map(() => '-'.repeat(maxYearWidth + 2)).join('|') + '|\n';
-
-  // Create the rows for each month
-  months.forEach((month, index) => {
-    let row = `| ${month.padEnd(maxMonthWidth)} |`;
-    years.forEach(year => {
+  let table = `| ${'Year'.padEnd(maxYearWidth)} | ` + months.map(month => month.padEnd(maxMonthWidth)).join(' | ') + ' |\n';
+  table += `|${'-'.repeat(maxYearWidth + 2)}|` + months.map(() => '-'.repeat(maxMonthWidth + 2)).join('|') + '|\n';
+  
+  // Create the rows for each year
+  years.forEach(year => {
+    let row = `| ${year.padEnd(maxYearWidth)} |`;
+    months.forEach((month, index) => {
       const key = `${year}-${String(index + 1).padStart(2, '0')}`;
-      row += ` ${String(counts[key] || 0).padEnd(maxYearWidth)} |`;
+      row += ` ${String(counts[key] || 0).padEnd(maxMonthWidth)} |`;
     });
     table += row + '\n';
   });
-
+  
   return table;
 }
 
@@ -154,8 +152,8 @@ let averageWordCount = totalNotesCount > 0 ? (totalWordCount / totalNotesCount).
 // Calculate the average link count
 let averageLinkCount = totalNotesCount > 0 ? (totalLinkCount / totalNotesCount).toFixed(2) : 0;
 
-// Calculate the total number of notes with the #inbox tag
-let totalInboxNotesCount = countInboxNotes(input.notes.all);
+// Calculate the total number of notes with the #proofing tag
+let totalProofingNotesCount = countProofingNotes(input.notes.all);
 
 // Calculate the monthly file counts
 let monthlyCounts = countFilesByMonth(input.notes.all);
@@ -172,15 +170,16 @@ tags:     #statistics
 ---
 # ${targetTitle}
 
-# Zettelkasten Stats
-★★★★★★★★★★★★★★★★★★  
-Total Number of Notes in Zettelkasten: ${totalNotesCount}  
-Total Word Count: ${totalWordCount}  
-Average Word Count: ${averageWordCount}  
-Total Link Count: ${totalLinkCount}  
-Average Link Count: ${averageLinkCount}  
+Zettelkasten Stats
+★★★★★★★★★★★★★★★★★★
+Total Number of Notes in Zettelkasten: ${totalNotesCount}
+Total Word Count: ${totalWordCount}
+Average Word Count: ${averageWordCount}
+Total Link Count: ${totalLinkCount}
+Average Link Count: ${averageLinkCount}
+Total Notes in Proofing Oven: ${totalProofingNotesCount}
 
-## Monthly Breakdown:  
+Monthly Breakdown:
 ${monthlyTable}
 `;
 
